@@ -2,7 +2,10 @@
   <div class="container">
     <CustomHeader />
     <CustomLogo />
-    <CustomButton buttonText="Click me" @click="handleButtonClick" />
+    <form @submit.prevent="handleButtonClick">
+      <CustomButton buttonText="Search" type="submit" />
+    </form>
+    <NavBar ref="navbar" />
     <CustomFooter />
   </div>
 </template>
@@ -12,6 +15,7 @@ import CustomButton from "./components/CustomButton.vue";
 import CustomLogo from "./components/CustomLogo.vue";
 import CustomHeader from "./components/CustomHeader.vue";
 import CustomFooter from "./components/CustomFooter.vue";
+import NavBar from "./components/NavBar.vue";
 
 export default {
   components: {
@@ -19,10 +23,11 @@ export default {
     CustomButton,
     CustomLogo,
     CustomFooter,
+    NavBar,
   },
   methods: {
     handleButtonClick() {
-      console.log("Button clicked");
+      this.$refs.navbar.toggleNavBar();
     },
   },
 };
