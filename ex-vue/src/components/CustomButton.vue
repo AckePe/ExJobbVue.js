@@ -11,6 +11,8 @@ export default {
   },
   methods: {
     onClick() {
+      console.log("button clicked");
+      event.stopPropagation();
       this.$emit("click");
     },
   },

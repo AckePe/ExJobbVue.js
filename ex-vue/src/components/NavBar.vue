@@ -13,18 +13,18 @@
 
 <script>
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
-      visible: false,
       searchTerm: "",
     };
   },
   methods: {
-    toggleNavBar() {
-      console.log("Toggling navbar");
-      this.visible = !this.visible;
-      console.log("Navbar visible");
-    },
     handleSearch() {
       // Implement search logic
     },
@@ -32,7 +32,7 @@ export default {
       // Implement measure logic
     },
     handleSingleSearchClick() {
-      // Implement single search logic
+      this.$emit("singleSearchClick", this.searchTerm);
     },
   },
 };
