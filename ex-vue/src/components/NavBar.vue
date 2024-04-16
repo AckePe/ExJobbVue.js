@@ -30,6 +30,7 @@ export default {
     },
     handleSearchButtonClick() {
       // Implement measure logic
+      this.$emit("measureClick");
     },
     handleSingleSearchClick() {
       this.$emit("singleSearchClick", this.searchTerm);

@@ -40,7 +40,7 @@ export default {
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #41b883;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 20px;
@@ -48,7 +48,7 @@ export default {
 }
 
 .card-header {
-  background-color: #61dbfb;
+  background-color: #34495e;
   border-bottom: 1px solid #ddd;
   padding: 8px 0;
   text-align: center;
