@@ -3,6 +3,7 @@
     <CustomHeader />
     <CustomLogo />
     <CustomButton buttonText="Click me" @click="handleButtonClick" />
+    <CustomFooter />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import CustomButton from "./components/CustomButton.vue";
 import CustomLogo from "./components/CustomLogo.vue";
 import CustomHeader from "./components/CustomHeader.vue";
+import CustomFooter from "./components/CustomFooter.vue";
 
 export default {
   components: {
     CustomHeader,
     CustomButton,
     CustomLogo,
+    CustomFooter,
   },
   methods: {
     handleButtonClick() {
