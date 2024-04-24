@@ -6,8 +6,10 @@
     <NavBar
       ref="navbar"
       :visible="navbarVisible"
+      :searchTerm="searchTerm"
       @singleSearchClick="handleSingleSearchClick"
       @measureClick="handleSearchButtonClick"
+      @search="updateSearchTerm"
     />
     <div class="content">
       <ul class="samples">
@@ -48,7 +50,8 @@ export default {
       totalLoadTime: 0,
       isMeasureClicked: false,
       searchData: [],
-      seed: "", // Initialize seed as empty string
+      searchTerm: "",
+      seed: "",
     };
   },
   methods: {
@@ -74,6 +77,9 @@ export default {
     },
     async handleSingleSearchClick() {
       await this.handleSearch(this.searchTerm);
+    },
+    async updateSearchTerm(newSearchTerm) {
+      this.searchTerm = newSearchTerm;
     },
     async handleSearch(searchTerm) {
       const startTime = performance.now();

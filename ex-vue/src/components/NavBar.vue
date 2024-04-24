@@ -3,7 +3,7 @@
     <input
       type="text"
       placeholder="Search..."
-      v-model="searchTerm"
+      v-model="localSearchTerm"
       @keyup.enter="handleSearch"
     />
     <button class="navbar-btn" @click="handleSingleSearchClick">Search</button>
@@ -18,22 +18,36 @@ export default {
       type: Boolean,
       required: true,
     },
+    searchTerm: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
-      searchTerm: "",
+      localSearchTerm: "",
     };
   },
+  watch: {
+    searchTerm: {
+      immediate: true,
+      handler(newVal) {
+        this.localSearchTerm = newVal; // Update local data property when prop changes
+      },
+    },
+  },
+
   methods: {
     handleSearch() {
       // Implement search logic
+      this.$emit("search", this.localSearchTerm);
     },
     handleSearchButtonClick() {
       // Implement measure logic
       this.$emit("measureClick");
     },
     handleSingleSearchClick() {
-      this.$emit("singleSearchClick", this.searchTerm);
+      this.$emit("singleSearchClick", this.localSearchTerm);
     },
   },
 };
