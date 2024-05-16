@@ -1,13 +1,14 @@
 <template>
   <nav v-if="visible" class="navbar">
     <input
+      id="searchInput"
       type="text"
       placeholder="Search..."
       v-model="localSearchTerm"
       @keyup.enter="handleSearch"
     />
-    <button class="navbar-btn" @click="handleSingleSearchClick">Search</button>
-    <button class="navbar-btn" @click="handleSearchButtonClick">Measure</button>
+    <button class="navbar-btn" id="navbarSearch" @click="handleSingleSearchClick">Search</button>
+    <button class="navbar-btn" id="navbarMeasure" @click="handleSearchButtonClick">Measure</button>
   </nav>
 </template>
 
@@ -47,6 +48,7 @@ export default {
       this.$emit("measureClick");
     },
     handleSingleSearchClick() {
+      this.handleSearch();
       this.$emit("singleSearchClick", this.localSearchTerm);
     },
   },
