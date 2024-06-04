@@ -101,7 +101,7 @@ export default {
       const endTime = performance.now();
       const measuredLoadTime = endTime - startTime;
 
-      this.searchResults = filteredData.slice(0, 100);
+      this.searchResults = filteredData.slice(0, 500);
 
       const searchItem = { searchTerm, loadTime: measuredLoadTime };
       this.searchData.push(searchItem);
